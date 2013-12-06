@@ -571,10 +571,11 @@ a:link, a:visited {
         float: left; }
       #container aside ul li strong {
         float: right; }
-      #container aside ul li.info {
-        color: #6c6c6c; }
-      #container aside ul li.glikes, #container aside ul li.shares {
-        background: #2c2c2c; }
+      #container aside ul li.metric {
+        padding: 0.625em 1.125em;
+        background: #00b427; }
+      #container aside ul li.WebsiteFBShares, #container aside ul li.GroupLikes, #container aside ul li.TwitterMetrics {
+        background: #272727; }
   #container section > ul > li {
     background: #f4f4f2; }
     #container section > ul > li ul {

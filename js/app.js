@@ -1,34 +1,5 @@
 var SumUp = angular.module('SumUp', []);
 
-SumUp.factory('juice', function($http) {
-	return {
-		getTimeline: function () {
-			return $http({
-				url: 'TwitterAPIExchange.php',
-				method: 'GET'
-			});
-		},
-		getwLikes: function () {
-			return $http({
-				url: 'https://api.facebook.com/method/fql.query?query=select%20like_count%20from%20link_stat%20where%20url=%27http://sumup.com/%27&format=json',
-				method: 'GET'
-			});
-		},
-		getgLikes: function () {
-			return $http({
-				url: 'https://api.facebook.com/method/fql.query?query=select%20like_count%20from%20link_stat%20where%20url=%27http://facebook.com/sumup.co.uk/%27&format=json',
-				method: 'GET'
-			});
-		},
-		getShares: function () {
-			return $http({
-				url: 'http://urls.api.twitter.com/1/urls/count.json?url=http://sumup.com&callback=JSON_CALLBACK',
-				method: 'JSONP'
-			});
-		},
-	};
-});
-
 SumUp.filter('timeago', function() {
 	return function(time) {
 		// http://ejohn.org/blog/javascript-pretty-date/
@@ -52,6 +23,57 @@ SumUp.filter('timeago', function() {
 	}
 });
 
+
+SumUp.factory('juice', function($http) {
+	return {
+		getTimeline: function () {
+			return $http({
+				url: 'php/getTimeline.php',
+				method: 'GET'
+			});
+		},
+		// Website metrics
+		getWebsiteFBLikes: function () {
+			return $http({
+				url: 'https://api.facebook.com/method/fql.query?query=select%20like_count%20from%20link_stat%20where%20url=%27http://sumup.com/%27&format=json',
+				method: 'GET'
+			});
+		},
+		getWebsiteFBShares: function () {
+			return $http({
+				url: 'https://graph.facebook.com/?id=http://sumup.com',
+				method: 'GET'
+			});
+		},
+		getWebsiteTShares: function () {
+			return $http({
+				url: 'http://urls.api.twitter.com/1/urls/count.json?url=http://sumup.com&callback=JSON_CALLBACK',
+				method: 'JSONP'
+			});
+		},
+		// Facebook metrics
+		getGroupLikes: function () {
+			return $http({
+				url: 'https://api.facebook.com/method/fql.query?query=select%20like_count%20from%20link_stat%20where%20url=%27http://facebook.com/sumup.co.uk/%27&format=json',
+				method: 'GET'
+			});
+		},
+		getGroupStories: function () {
+			return $http({
+				url: 'https://graph.facebook.com/?id=http://facebook.com/sumup.co.uk',
+				method: 'GET'
+			});
+		},
+		// Twitter metrics
+		getTwitterMetrics: function () {
+			return $http({
+				url: 'php/getMetrics.php',
+				method: 'GET'
+			});
+		}
+	};
+});
+
 SumUp.controller('timeline', function($scope, $http, juice) {
 	
 	$scope.data = {
@@ -59,9 +81,8 @@ SumUp.controller('timeline', function($scope, $http, juice) {
 		loader: true,
 		count: 0,
 		check: function(count) {
-			if (count==3) {
+			if (count==6) {
 				$scope.data.loader = false;
-				console.log($scope.data.content.timeline.statuses);
 			}
 		}
 	}
@@ -71,19 +92,34 @@ SumUp.controller('timeline', function($scope, $http, juice) {
 		$scope.data.check($scope.data.count++);
 	});
 
-	juice.getwLikes().success(function(data) {
-		$scope.data.content.wlikes = data;
+	// Website metrics
+	juice.getWebsiteFBLikes().success(function(data) {
+		$scope.data.content.WebsiteFBLikes = data;
 		$scope.data.check($scope.data.count++);
 	});
-
-	juice.getgLikes().success(function(data) {
-		$scope.data.content.glikes = data;
+	juice.getWebsiteFBShares().success(function(data) {
+		$scope.data.content.WebsiteFBShares = data;
 		$scope.data.check($scope.data.count++);
 	});
-
-	juice.getShares().error(function(data) {
+	juice.getWebsiteTShares().error(function(data) {
 		// http://stackoverflow.com/a/16349513/618063
-		$scope.data.content.shares = angular.callbacks.counter;
+		$scope.data.content.WebsiteTShares = angular.callbacks.counter;
+		$scope.data.check($scope.data.count++);
+	});
+
+	// Facebook metrics
+	juice.getGroupLikes().success(function(data) {
+		$scope.data.content.GroupLikes = data;
+		$scope.data.check($scope.data.count++);
+	});
+	juice.getGroupStories().success(function(data) {
+		$scope.data.content.GroupStories = data;
+		$scope.data.check($scope.data.count++);
+	});
+
+	// Twitter metrics
+	juice.getTwitterMetrics().success(function(data) {
+		$scope.data.content.TwitterMetrics = data;
 		$scope.data.check($scope.data.count++);
 	});
 

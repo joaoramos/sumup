@@ -201,6 +201,7 @@ $red: 			rgba(195,66,72,1);
 $white: 		rgba(251,251,249,1);
 $smokewhite: 	rgba(244,244,242,1);
 $darkgrey: 		rgba(31,31,31,1);
+$yellow: 		rgba(0,180,39,1);
 
 // Animation
 
@@ -318,12 +319,13 @@ a {
 					float: right;
 				}
 
-				&.info {
-					color: lighten($darkgrey, 30%);
+				&.metric {
+					padding: #{10/$em}em #{0.75*$line/$em}em;
+					background: $yellow;
 				}
 
-				&.glikes, &.shares {
-					background: lighten($darkgrey, 5%);
+				&.WebsiteFBShares, &.GroupLikes, &.TwitterMetrics {
+					background: lighten($darkgrey, 3%);
 				}
 			}
 		}

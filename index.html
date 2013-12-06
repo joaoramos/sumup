@@ -51,20 +51,47 @@
                 </header>
                 <aside>
                     <ul>
-                        <li class="glikes">
-                            <strong>{{ data.content.glikes[0].like_count }}</strong>
+                        <!-- Website metrics -->
+                        <li class="metric">
+                            Sumup.com
+                        </li>
+                        <li class="WebsiteFBLikes">
+                            <strong>{{ data.content.WebsiteFBLikes[0].like_count }}</strong>
                             <span>Likes on Facebook</span>
                         </li>
-                        <li class="wlikes">
-                            <strong>{{ data.content.wlikes[0].like_count }}</strong>
-                            <span>Likes on the website</span>
+                        <li class="WebsiteFBShares">
+                            <strong>{{ data.content.WebsiteFBShares.shares }}</strong>
+                            <span>Shares on Facebook</span>
                         </li>
-                        <li class="shares">
-                            <strong>{{ data.content.shares }}</strong>
-                            <span>Tweets with sumup.com</span>
+                        <li class="WebsiteTShares">
+                            <strong>{{ data.content.WebsiteTShares }}</strong>
+                            <span>Shares on Twitter</span>
                         </li>
+
+                        <!-- Facebook metrics -->
+                        <li class="metric">
+                            Facebook Group
+                        </li>
+                        <li class="GroupLikes">
+                            <strong>{{ data.content.GroupLikes[0].like_count }}</strong>
+                            <span>Likes</span>
+                        </li>
+                        <li class="GroupStories">
+                            <strong>{{ data.content.GroupStories.talking_about_count }}</strong>
+                            <span>Weekly stories</span>
+                        </li>
+
+                        <!-- Twitter metrics-->
+                        <li class="metric">
+                            @SumUp_UK
+                        </li>
+                        <li class="TwitterMetrics">
+                            <strong>{{ data.content.TwitterMetrics[0].followers_count }}</strong>
+                            <span>Followers</span>
+                        </li>
+
                         <li class="info">
-                            <h2>A few insights on how Sum Up is doing on Facebook and Twitter, by <a href="http://joao.pt" title="João.pt">João</a></h2>
+                            <h2>A few insights on how Sum Up is doing on Facebook and Twitter, made by <a href="http://joao.pt" title="João.pt">João</a></h2>
                         </li>
                     </ul>
                 </aside>
