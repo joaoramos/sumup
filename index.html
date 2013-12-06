@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+        <head>
+        <title>SumUp › Timeline</title>
+        <meta name="description" content="SumUp › Timeline" />
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" value="SumUp › Timeline">
+        <meta name="twitter:site" value="@SumUp_UK">
+        <meta name="twitter:creator" content="@SumUp_UK">
+        <meta name="twitter:url" value="http://www.sumup.com/">
+        <meta name="twitter:image" content="/css/img/icon.png">
+        <meta property="og:url" content="http://www.sumup.com/" />
+        <meta property="og:site_name" content="SumUp › Timeline" />
+        <meta property="og:title" content="SumUp › Timeline" />
+        <meta property="og:image" content="http://www.sumup.com/css/img/icon.png"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:description" content="SumUp › Timeline" />
+                
+        <link rel="stylesheet" href="css/stylesheet.css"/> 
+        <link rel="apple-touch-icon" href="/css/img/icon.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="/css/img/favicon.ico">
+        <link rel="image_src" href="/css/img/promo.png" />
+
+            <!--[if lt IE 9]>
+                    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+                    <script src="js/respond.js"></script>
+            <![endif]-->
+
+        <script type="text/javascript" src="//use.typekit.net/gqn0lkz.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        </head>
+        <body ng-app="SumUp" ng-controller="timeline" lang="en">
+            
+            <div id="loader" ng-show="data.loader">
+                <span>
+                    <em>✖</em>
+                </span>
+            </div>
+
+            <div id="container">
+                <header>
+                    <div class="holder">
+                        <!--[if IE]><img src="css/img/logo.png" alt="SumUp" /><![endif]-->
+                        <!--[if !IE]> --><img src="css/img/logo.svg" alt="SumUp" /><!-- <![endif]-->
+                    </div>
+                </header>
+                <aside>
+                    <ul>
+                        <li class="glikes">
+                            <strong>{{ data.content.glikes[0].like_count }}</strong>
+                            <span>Likes on Facebook</span>
+                        </li>
+                        <li class="wlikes">
+                            <strong>{{ data.content.wlikes[0].like_count }}</strong>
+                            <span>Likes on the website</span>
+                        </li>
+                        <li class="shares">
+                            <strong>{{ data.content.shares }}</strong>
+                            <span>Tweets with sumup.com</span>
+                        </li>
+                        <li class="info">
+                            <h2>A few insights on how Sum Up is doing on Facebook and Twitter, by <a href="http://joao.pt" title="João.pt">João</a></h2>
+                        </li>
+                    </ul>
+                </aside>
+                <section>
+                    <ul id="timeline">
+                        <li ng-repeat="tweet in data.content.timeline.statuses">
+                            <ul>
+                                <li class="profile">
+                                    <div class="avatar" style="background-image: url('{{ tweet.user.profile_background_image_url }}');"></div>
+                                </li>
+                                <li class="tweet">
+                                    <p>{{ tweet.text }}</p>
+                                    <cite>Tweeted by {{ tweet.user.name }}, {{ tweet.created_at | timeago }}</cite>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <script src="js/angular.js"></script>
+            <script src="js/app.js"></script>
+        </body>
+</html>
