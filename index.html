@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-        <head>
+    <head>
         <title>SumUp › Insights</title>
         <meta name="description" content="SumUp › Insights" />
         <meta charset="utf-8"/>
@@ -33,86 +33,86 @@
         <script type="text/javascript" src="//use.typekit.net/gqn0lkz.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-        </head>
-        <body ng-app="SumUp" ng-controller="timeline" lang="en">
-            
-            <div id="loader" ng-show="data.loader">
-                <span>
-                    <em>✖</em>
-                </span>
-            </div>
+    </head>
+    <body ng-app="SumUp" ng-controller="timeline" lang="en">
+        
+        <div id="loader" ng-show="data.loader">
+            <span>
+                <img src="css/img/loader.png" alt="Fetching data" />
+            </span>
+        </div>
 
-            <div id="container" ng-hide="data.loader">
-                <header>
-                    <div class="holder">
-                        <!--[if IE]><img src="css/img/logo.png" alt="SumUp" /><![endif]-->
-                        <!--[if !IE]> --><img src="css/img/logo.svg" alt="SumUp" /><!-- <![endif]-->
-                    </div>
-                </header>
-                <aside>
-                    <ul>
-                        <!-- Website metrics -->
-                        <li class="metric">
-                            Sumup.com
-                        </li>
-                        <li class="WebsiteFBLikes">
-                            <strong>{{ data.content.WebsiteFBLikes[0].like_count }}</strong>
-                            <span>Likes on Facebook</span>
-                        </li>
-                        <li class="WebsiteFBShares">
-                            <strong>{{ data.content.WebsiteFBShares.shares }}</strong>
-                            <span>Shares on Facebook</span>
-                        </li>
-                        <li class="WebsiteTShares">
-                            <strong>{{ data.content.WebsiteTShares }}</strong>
-                            <span>Shares on Twitter</span>
-                        </li>
+        <div id="container" ng-hide="data.loader">
+            <header>
+                <div class="holder">
+                    <!--[if IE]><img src="css/img/logo.png" alt="SumUp" /><![endif]-->
+                    <!--[if !IE]> --><img src="css/img/logo.svg" alt="SumUp" /><!-- <![endif]-->
+                </div>
+            </header>
+            <aside>
+                <ul>
+                    <!-- Website metrics -->
+                    <li class="metric">
+                        Sumup.com
+                    </li>
+                    <li class="WebsiteFBLikes">
+                        <strong>{{ data.content.WebsiteFBLikes[0].like_count }}</strong>
+                        <span>Likes on Facebook</span>
+                    </li>
+                    <li class="WebsiteFBShares">
+                        <strong>{{ data.content.WebsiteFBShares.shares }}</strong>
+                        <span>Shares on Facebook</span>
+                    </li>
+                    <li class="WebsiteTShares">
+                        <strong>{{ data.content.WebsiteTShares }}</strong>
+                        <span>Shares on Twitter</span>
+                    </li>
 
-                        <!-- Facebook metrics -->
-                        <li class="metric">
-                            Facebook Group
-                        </li>
-                        <li class="GroupLikes">
-                            <strong>{{ data.content.GroupLikes[0].like_count }}</strong>
-                            <span>Likes</span>
-                        </li>
-                        <li class="GroupStories">
-                            <strong>{{ data.content.GroupStories.talking_about_count }}</strong>
-                            <span>Weekly stories</span>
-                        </li>
+                    <!-- Facebook metrics -->
+                    <li class="metric">
+                        Facebook Group
+                    </li>
+                    <li class="GroupLikes">
+                        <strong>{{ data.content.GroupLikes[0].like_count }}</strong>
+                        <span>Likes</span>
+                    </li>
+                    <li class="GroupStories">
+                        <strong>{{ data.content.GroupStories.talking_about_count }}</strong>
+                        <span>Weekly stories</span>
+                    </li>
 
-                        <!-- Twitter metrics-->
-                        <li class="metric">
-                            @SumUp_UK
-                        </li>
-                        <li class="TwitterMetrics">
-                            <strong>{{ data.content.TwitterMetrics[0].followers_count }}</strong>
-                            <span>Followers</span>
-                        </li>
+                    <!-- Twitter metrics-->
+                    <li class="metric">
+                        @SumUp_UK
+                    </li>
+                    <li class="TwitterMetrics">
+                        <strong>{{ data.content.TwitterMetrics[0].followers_count }}</strong>
+                        <span>Followers</span>
+                    </li>
 
-                        <li class="info">
-                            <h2>A few insights on how Sum Up is doing on Facebook and Twitter, made by <a href="http://joao.pt" title="João.pt">João</a></h2>
-                        </li>
-                    </ul>
-                </aside>
-                <section>
-                    <ul id="timeline">
-                        <li ng-repeat="tweet in data.content.timeline.statuses">
-                            <ul>
-                                <li class="profile">
-                                    <div class="avatar" style="background-image: url('{{ tweet.user.profile_background_image_url }}');"></div>
-                                </li>
-                                <li class="tweet">
-                                    <p>{{ tweet.text }}</p>
-                                    <cite>Tweeted by {{ tweet.user.name }}, {{ tweet.created_at | timeago }}</cite>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-            </div>
+                    <li class="info">
+                        <h2>A few insights on how Sum Up is doing on Facebook and Twitter, made by <a href="http://joao.pt" title="João.pt" target="_blank">João</a></h2>
+                    </li>
+                </ul>
+            </aside>
+            <section>
+                <ul id="timeline">
+                    <li ng-repeat="tweet in data.content.timeline.statuses">
+                        <ul>
+                            <li class="profile">
+                                <div class="avatar" style="background-image: url('{{ tweet.user.profile_background_image_url }}');"></div>
+                            </li>
+                            <li class="tweet">
+                                <p>{{ tweet.text }}</p>
+                                <cite>Tweeted by {{ tweet.user.name }}, {{ tweet.created_at | timeago }}</cite>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </div>
 
-            <script src="js/angular.js"></script>
-            <script src="js/app.js"></script>
-        </body>
+        <script src="js/angular.js"></script>
+        <script src="js/app.js"></script>
+    </body>
 </html>

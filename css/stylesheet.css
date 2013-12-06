@@ -486,6 +486,20 @@ h2, h1 {
   to {
     -moz-transform: rotate(360deg); } }
 
+@-o-keyframes rotate {
+  from {
+    -o-transform: rotate(0deg); }
+
+  to {
+    -o-transform: rotate(360deg); } }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); }
+
+  to {
+    transform: rotate(360deg); } }
+
 body {
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
@@ -516,19 +530,20 @@ a:link, a:visited {
     vertical-align: middle;
     width: 100%;
     height: 100%; }
-    #loader span em {
-      font-style: normal;
-      font-size: 100px;
-      line-height: 1;
+    #loader span img {
       display: inline-block;
       -webkit-animation-name: rotate;
-      -webkit-animation-duration: 3s;
-      -webkit-animation-iteration-count: infinite;
-      -webkit-animation-timing-function: linear;
       -moz-animation-name: rotate;
-      -moz-animation-duration: 3s;
+      animation-name: rotate;
+      -webkit-animation-duration: 0.75s;
+      -moz-animation-duration: 0.75s;
+      animation-duration: 0.75s;
+      -webkit-animation-timing-function: ease;
+      -moz-animation-timing-function: ease;
+      animation-timing-function: ease;
+      -webkit-animation-iteration-count: infinite;
       -moz-animation-iteration-count: infinite;
-      -moz-animation-timing-function: linear; }
+      animation-iteration-count: infinite; }
 
 #container {
   -webkit-transition: all 0.1s ease-in-out;
@@ -573,7 +588,8 @@ a:link, a:visited {
         float: right; }
       #container aside ul li.metric {
         padding: 0.625em 1.125em;
-        background: #00b427; }
+        background: #00b427;
+        color: #1f1f1f; }
       #container aside ul li.WebsiteFBShares, #container aside ul li.GroupLikes, #container aside ul li.TwitterMetrics {
         background: #272727; }
   #container section > ul > li {
