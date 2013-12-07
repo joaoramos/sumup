@@ -500,6 +500,12 @@ h2, h1 {
   to {
     transform: rotate(360deg); } }
 
+::-moz-selection {
+  background: #dc8f93; }
+
+::selection {
+  background: #dc8f93; }
+
 body {
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;

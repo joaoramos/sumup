@@ -214,6 +214,14 @@ $yellow: 		rgba(0,180,39,1);
   }
 }
 
+::-moz-selection {
+    background: lighten($red, 20%);
+}
+
+::selection {
+    background: lighten($red, 20%);
+}
+
 body {
 	@include transition (all 0.1s ease-in-out);
 	background: url('img/blur.jpg') no-repeat center center fixed;
