@@ -320,6 +320,7 @@ a {
 				}
 
 				&.metric {
+					font-style: italic;
 					padding: #{10/$em}em #{0.75*$line/$em}em;
 					background: darken($red, 15%);
 					color: $darkgrey;

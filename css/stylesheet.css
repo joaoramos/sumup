@@ -593,6 +593,7 @@ a:link, a:visited {
       #container aside ul li strong {
         float: right; }
       #container aside ul li.metric {
+        font-style: italic;
         padding: 0.625em 1.125em;
         background: #8c2c31;
         color: #1f1f1f; }
