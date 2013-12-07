@@ -313,7 +313,7 @@ a {
 
 				&.metric {
 					padding: #{10/$em}em #{0.75*$line/$em}em;
-					background: $yellow;
+					background: darken($red, 15%);
 					color: $darkgrey;
 				}
 
@@ -427,7 +427,8 @@ a {
 					}
 
 					strong {
-						@include large;
+						// @include large;
+						font-size: 125%;
 						display: block;
 					}
 				}

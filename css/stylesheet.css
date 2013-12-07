@@ -588,7 +588,7 @@ a:link, a:visited {
         float: right; }
       #container aside ul li.metric {
         padding: 0.625em 1.125em;
-        background: #00b427;
+        background: #8c2c31;
         color: #1f1f1f; }
       #container aside ul li.WebsiteFBShares, #container aside ul li.GroupLikes, #container aside ul li.TwitterMetrics {
         background: #272727; }
@@ -664,9 +664,7 @@ a:link, a:visited {
       #container aside ul li span, #container aside ul li strong {
         float: none; }
       #container aside ul li strong {
-        /* 26 / 36px */
-        font-size: 1.625em;
-        line-height: 1.38462em;
+        font-size: 125%;
         display: block; }
     #container section {
       width: 70%; } }
