@@ -373,6 +373,19 @@ a {
 	}
 }
 
+#github {
+	overflow: hidden;
+	text-align: center;
+	margin-top: #{$line/$em}em;
+	padding-bottom: #{$line/$em}em;
+
+	a {
+		&:link, &:visited {
+			color: lighten($darkgrey, 35%);
+		}
+	}
+}
+
 /*
 *  Simple elastic gutters
 *  Note: box-sizing will not work in IE6-7
@@ -469,6 +482,10 @@ a {
 		@include border-bottom-radius(5px);
 		max-width: #{850/$em}em;
 		margin: 0 auto;
+	}
+
+	#github {
+		padding-bottom: 0;
 	}
 }
 

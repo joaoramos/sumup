@@ -623,6 +623,14 @@ a:link, a:visited {
     #container section > ul > li:nth-child(2n+2) {
       background: #fbfbf9; }
 
+#github {
+  overflow: hidden;
+  text-align: center;
+  margin-top: 1.5em;
+  padding-bottom: 1.5em; }
+  #github a:link, #github a:visited {
+    color: #787878; }
+
 /*
 *  Simple elastic gutters
 *  Note: box-sizing will not work in IE6-7
@@ -689,7 +697,10 @@ a:link, a:visited {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     max-width: 53.125em;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+
+  #github {
+    padding-bottom: 0; } }
 /* @media screen and (min-width: 984px) */
 /* @media screen and (min-width: 1200px) */
 /* @media screen and (min-width: 1392px) */
